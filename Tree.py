@@ -94,18 +94,18 @@ class Tree(object):
                 print('[' + board[i][j] + ']', end='')
             print('\n')
 
-    def minimax(self, nodo, profundidade, maximizador):
-        if nodo.height == 1:
-            return self.verify_win(nodo.board)
-        elif maximizador == False:
+    def minimax(self, node, height, flag_max):
+        if node.height == 1:
+            return self.verify_win(node.board)
+        elif not flag_max:
             alpha = 10000
-            lista = nodo.children
-            for filho in lista:
-                alpha = min(alpha, self.minimax(filho, profundidade - 1, True))
+            children = node.children
+            for child in children:
+                alpha = min(alpha, self.minimax(child, height - 1, True))
             return alpha
         else:
             alpha = -10000
-            lista = nodo.children
-            for filho in lista:
-                alpha = max(alpha, self.minimax(filho, profundidade - 1, False))
+            children = node.children
+            for child in children:
+                alpha = max(alpha, self.minimax(child, height - 1, False))
             return alpha
