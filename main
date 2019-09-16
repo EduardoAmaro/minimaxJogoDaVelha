@@ -1,4 +1,0 @@
-from Tree import Tree
-
-arvore = Tree()
-arvore.generateTree(arvore.root, 9)

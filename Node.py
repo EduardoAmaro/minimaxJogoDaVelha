@@ -1,7 +1,7 @@
-class Node:
-    def __init__(self, profundidade):
-        self.profundidade = profundidade
-        self.filhos = []
-        self.tabuleiro = [[0, 0, 0],
-                          [0, 0, 0],
-                          [0, 0, 0]]
+class Node(object):
+    def __init__(self, board, height):
+        self.height = height
+        self.children = []
+        self.board = board
+        for i in range(0, height):
+            self.children.append(None)
